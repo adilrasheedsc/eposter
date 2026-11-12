@@ -131,7 +131,13 @@ export const createEposter = async (req, res, next) => {
 
     const extension = path.extname(req.file.originalname).toLowerCase();
 
-    const fileKey = `eposters/${randomUUID()}${extension}`;
+    const safePresenterName = presenterName
+  .trim()
+  .replace(/[^a-zA-Z0-9]+/g, "_")
+  .replace(/^_+|_+$/g, "")
+  .slice(0, 80);
+
+const fileKey = `eposters/${safePresenterName}_${randomUUID()}${extension}`;
 
     const originalName = path
       .basename(req.file.originalname)
