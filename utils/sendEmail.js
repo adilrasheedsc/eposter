@@ -10,7 +10,7 @@ const client = new SendMailClient({
 });
 
 const CC_RECIPIENTS = [
-  "adilsaascraft@gmail.com",
+  "aroicon2026@gmail.com",
 ];
 
 const sendEposterEmail = async ({
